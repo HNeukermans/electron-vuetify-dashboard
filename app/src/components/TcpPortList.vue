@@ -6,7 +6,7 @@
           <v-toolbar-title inset>Tcp ports</v-toolbar-title>
         </v-toolbar>
         <v-list>
-          <v-list-tile avatar v-for="item in items" v-bind:key="item.title">            
+          <v-list-tile avatar v-for="item in ports" v-bind:key="item.title">            
             <v-list-tile-content>
               <v-list-tile-title>{{ item.title }}</v-list-tile-title>
             </v-list-tile-content>
@@ -22,30 +22,20 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
+  created() {
+    this.$store.dispatch('startListening');
+  },
+  computed: {
+    //...mapGetters(['ports']),
+    ports() {
+      return this.$store.getters.ports;
+    }
+  },
   data() {
-    return {
-      items: [
-        {
-          icon: "folder",
-          iconClass: "grey lighten-1 white--text",
-          title: "Photos",
-          subtitle: "Jan 9, 2014"
-        },
-        {
-          icon: "folder",
-          iconClass: "grey lighten-1 white--text",
-          title: "Recipes",
-          subtitle: "Jan 17, 2014"
-        },
-        {
-          icon: "folder",
-          iconClass: "grey lighten-1 white--text",
-          title: "Work",
-          subtitle: "Jan 28, 2014"
-        }
-      ]
-    };
+    return {}
   }
 };
 </script>
