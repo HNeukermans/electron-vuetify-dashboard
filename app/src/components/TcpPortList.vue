@@ -26,12 +26,11 @@ import { mapGetters } from "vuex";
 
 export default {
   created() {
-    this.$store.dispatch('startListening');
+    this.$store.dispatch('ports/listen');
   },
   computed: {
-    //...mapGetters(['ports']),
     ports() {
-      return this.$store.getters.ports;
+      return this.$store.getters['ports/ports'];
     }
   },
   data() {

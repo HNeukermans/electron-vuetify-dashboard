@@ -30,7 +30,7 @@ export const mutations = {
 }
 
 export const actions = {
-    startListening({state}) {
+    listen({state}) {
         console.log('startListening...');
         // portastic.filter([8080, 8081, 8082])
         //     .then(function (ports) {

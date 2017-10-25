@@ -13082,10 +13082,16 @@ module.exports = require("tty");
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_0_vuex__["a" /* default */])
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_0_vuex__["a" /* default */].Store({
-    state: __WEBPACK_IMPORTED_MODULE_2__ports__["a" /* state */],
-    actions: __WEBPACK_IMPORTED_MODULE_2__ports__["b" /* actions */],
-    mutations: __WEBPACK_IMPORTED_MODULE_2__ports__["c" /* mutations */],
-    getters: __WEBPACK_IMPORTED_MODULE_2__ports__["d" /* getters */]
+    modules: {
+        ports: {
+            namespaced: true,
+            state: __WEBPACK_IMPORTED_MODULE_2__ports__["a" /* state */],
+            actions: __WEBPACK_IMPORTED_MODULE_2__ports__["b" /* actions */],
+            mutations: __WEBPACK_IMPORTED_MODULE_2__ports__["c" /* mutations */],
+            getters: __WEBPACK_IMPORTED_MODULE_2__ports__["d" /* getters */]
+        }
+    }
+
     //plugins
 }));
 
@@ -29311,7 +29317,7 @@ const mutations = {
 
 
 const actions = {
-    startListening({state}) {
+    listen({state}) {
         console.log('startListening...');
         // portastic.filter([8080, 8081, 8082])
         //     .then(function (ports) {
@@ -37919,12 +37925,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   created() {
-    this.$store.dispatch('startListening');
+    this.$store.dispatch('ports/listen');
   },
   computed: {
-    //...mapGetters(['ports']),
     ports() {
-      return this.$store.getters.ports;
+      return this.$store.getters['ports/ports'];
     }
   },
   data() {
