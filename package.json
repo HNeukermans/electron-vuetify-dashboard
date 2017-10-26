@@ -12,6 +12,7 @@
   "license": "WTFPL",
   "dependencies": {
     "concurrently": "^3.5.0",
+    "lodash": "^4.17.4",
     "portastic": "^1.0.1",
     "rxjs": "^5.5.2",
     "tcp-port-used": "^0.1.2",

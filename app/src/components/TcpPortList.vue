@@ -6,9 +6,10 @@
           <v-toolbar-title inset>Tcp ports</v-toolbar-title>
         </v-toolbar>
         <v-list>
-          <v-list-tile avatar v-for="item in ports" v-bind:key="item.number">            
+          <v-list-tile avatar v-for="item in processes" v-bind:key="item.port">            
             <v-list-tile-content>
-              <v-list-tile-title>{{ item.number }}</v-list-tile-title>
+              <v-list-tile-title>{{ item.port }}</v-list-tile-title>
+              {{ item.name }}
             </v-list-tile-content>
             <v-list-tile-action>
               <v-btn icon ripple>
@@ -26,11 +27,13 @@ import { mapGetters } from "vuex";
 
 export default {
   created() {
-    this.$store.dispatch('ports/listen');
+    this.$store.dispatch('process/listen');
   },
   computed: {
-    ports() {
-      return this.$store.getters['ports/ports'];
+    processes() {
+      var p =  this.$store.getters['process/sort']();
+      console.log(p);
+      return p;
     }
   },
   data() {
