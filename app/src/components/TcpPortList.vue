@@ -6,9 +6,9 @@
           <v-toolbar-title inset>Tcp ports</v-toolbar-title>
         </v-toolbar>
         <v-list>
-          <v-list-tile avatar v-for="item in ports" v-bind:key="item.title">            
+          <v-list-tile avatar v-for="item in ports" v-bind:key="item.number">            
             <v-list-tile-content>
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+              <v-list-tile-title>{{ item.number }}</v-list-tile-title>
             </v-list-tile-content>
             <v-list-tile-action>
               <v-btn icon ripple>
