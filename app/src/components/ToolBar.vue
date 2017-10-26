@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar>
+  <v-toolbar app>
     <v-toolbar-title>Dashboard</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-side-icon class="hidden-md-and-up"></v-toolbar-side-icon>

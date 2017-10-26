@@ -1,8 +1,18 @@
 <template>
-        <v-layout fill-height v-flex column>
+<div id="app">
+      <v-app>
+        <!-- <v-layout fill-height fluid v-flex column> -->
+            <navigation></navigation>
             <tool-bar></tool-bar>
-            <v-container fluid fill-height>
+            <main>
+              <v-content>
+      <v-container fluid>
+            <!-- <v-container fluid fill-height> -->
             <tcp-port-list></tcp-port-list>
+               </v-container>
+    </v-content>
+            </main>
+            <v-footer app></v-footer>
             <!-- <v-flex>
                 <v-card class="mt-5" dark color="primary">
                     <v-card-text >one</v-card-text>
@@ -23,12 +33,13 @@
                     <div>© {{ new Date().getFullYear() }}</div>
                 </v-footer>
             </v-flex> -->
-            </v-container>  
-        </v-layout>
-</template>
-
+            <!-- </v-container>  
+        </v-layout> -->
+      </v-app>
+</div>
+    </template>
 <script>
-import Hello from "./components/Hello.vue";
+import Navigation from "./components/Navigation.vue";
 import ToolBar from "./components/ToolBar.vue";
 import TcpPortList from "./components/TcpPortList.vue";
 // With shell.openExternal(url) is how
@@ -37,7 +48,7 @@ const shell = require("electron").shell;
 
 export default {
   components: {
-    Hello,
+    Navigation,
     ToolBar,
     TcpPortList
   },
