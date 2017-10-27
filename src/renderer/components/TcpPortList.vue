@@ -6,17 +6,15 @@
           <v-toolbar-title inset>Tcp ports</v-toolbar-title>
         </v-toolbar>
         <v-list>
-          <v-list-tile avatar v-for="item in processes" v-bind:key="item.port">            
+          <v-list-tile v-for="item in processes" v-bind:key="item.port">            
+            <v-list-tile-action>             
+               <v-icon :color="item.inUse | power">power</v-icon>
+            </v-list-tile-action>            
             <v-list-tile-content>
-              <v-list-tile-title>{{ item.port }}</v-list-tile-title>
-              {{ item.name }}
-            </v-list-tile-content>
-            <v-list-tile-action>
-              <v-btn icon ripple>
-                <v-icon color="grey lighten-1">info</v-icon>
-              </v-btn>
-            </v-list-tile-action>
-          </v-list-tile>                    
+              <v-list-tile-title>{{ item.name }}</v-list-tile-title>
+              <v-list-tile-sub-title class="grey--text">{{ item.port }}</v-list-tile-sub-title>
+            </v-list-tile-content>            
+          </v-list-tile>                  
         </v-list>
       </v-card>
     </v-flex>
@@ -37,8 +35,13 @@ export default {
     },
   },
   data() {
-    return {};
+    return {}
   },
+  filters : {
+    power(value){
+      return value ? "green" : "red";
+    }
+  }
 };
 </script>
 
